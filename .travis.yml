@@ -1,0 +1,15 @@
+language: node_js
+sudo: required
+
+services:
+  - docker
+
+before_script:
+- python -m SimpleHTTPServer 8009 &
+- sleep 3
+
+script:
+- docker run --privileged --net="host" -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io --budget /sitespeed.io/budget.json urls.txt
+
+after_script:
+- kill `ps aux | grep "python -m SimpleHTTPServer" | grep -v grep | awk '{print $2}'`
