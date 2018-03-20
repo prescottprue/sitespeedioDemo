@@ -13,3 +13,13 @@ script:
 
 after_script:
 - kill `ps aux | grep "python -m SimpleHTTPServer" | grep -v grep | awk '{print $2}'`
+
+deploy:
+  provider: gcs
+  access_key_id: $STORAGE_KEY_ID
+  secret_access_key: $STORAGE_KEY_SECRET
+  bucket: $STORAGE_BUCKET
+  skip_cleanup: true
+  acl: public-read
+  local-dir: sitespeed.io
+  upload-dir: speedresults
