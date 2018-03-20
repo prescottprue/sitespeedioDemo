@@ -1,2 +1,2 @@
-https://firebase-top-agent-int.firebaseapp.com
-https://firebase-top-agent-int.firebaseapp.com/login
+https://top-agent-int.firebaseapp.com
+https://top-agent-int.firebaseapp.com/login
